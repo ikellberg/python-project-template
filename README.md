@@ -16,6 +16,7 @@ project/
 │   ├── CLAUDE.md         # Как писать код, принципы
 │   └── skills/           # Навыки для LLM
 ├── .cursor/rules/        # Правила для Cursor
+│   └── dev_rules.mdc     # Базовые правила разработки
 ├── project_state.md      # Описание проекта, план, прогресс
 └── pyproject.toml        # Зависимости, настройки линтера
 ```
@@ -25,7 +26,8 @@ project/
 | Что | Куда |
 |-----|------|
 | Описание проекта, план, статус | `project_state.md` |
-| Правила для LLM (как писать код) | `.claude/CLAUDE.md` |
+| Правила для Claude | `.claude/CLAUDE.md` |
+| Правила для Cursor | `.cursor/rules/dev_rules.mdc` |
 | Аудиты проекта | `docs/audit_YYYY-MM-DD.md` |
 | Архитектурные решения | `docs/` |
 | Тестовые данные (PDF, JSON) | `data/` |
@@ -37,7 +39,7 @@ project/
 - [ ] Переименуй `src/project_name/` под свой проект
 - [ ] Обнови `pyproject.toml` (name, description)
 - [ ] Заполни `project_state.md` (описание, план)
-- [ ] Заполни `.claude/CLAUDE.md` (правила)
+- [ ] Заполни ЧАСТЬ 3 в `.claude/CLAUDE.md` (контекст проекта)
 - [ ] Удали этот README или замени на описание своего проекта
 
 ## Команды
