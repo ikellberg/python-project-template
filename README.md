@@ -2,35 +2,54 @@
 
 Шаблон для Python-проектов.
 
-## Структура и что куда класть
+## Структура
 
 ```
 project/
-├── src/project_name/     # Код проекта
-│   ├── agents/           # Агенты (если есть)
-│   └── main.py           # Точка входа
-├── tests/                # Тесты
-├── data/                 # Данные для разработки (не попадает в git)
-├── docs/                 # Документация (аудиты, архитектура, ADR)
-├── .claude/              # Правила для Claude
-│   ├── CLAUDE.md         # Как писать код, принципы
-│   └── skills/           # Навыки для LLM
-├── .cursor/rules/        # Правила для Cursor
-│   └── dev_rules.mdc     # Базовые правила разработки
-├── project_state.md      # Описание проекта, план, прогресс
-└── pyproject.toml        # Зависимости, настройки линтера
+├── .agents-config/           # Источник правды для правил и скиллов
+│   ├── RULES.md              # Базовые правила для LLM
+│   └── skills/               # Скиллы для LLM
+├── .claude/                   # Claude Code — симлинки на .agents-config
+│   ├── CLAUDE.md -> ../.agents-config/RULES.md
+│   └── skills -> ../.agents-config/skills
+├── .codex/                   # Codex — симлинки на .agents-config
+│   ├── AGENTS.md -> ../.agents-config/RULES.md
+│   └── skills -> ../.agents-config/skills
+├── .cursor/                  # Cursor — симлинки + правила
+│   ├── skills -> ../.agents-config/skills
+│   └── rules/dev_rules.mdc   # Правила (дублирует RULES для Cursor)
+├── docs/
+│   ├── prd.md                # Product Requirements Document (заполняется скиллом /prd)
+│   ├── stories/              # User Stories (US-XXX.md)
+│   │   └── done/             # Завершённые
+│   ├── issues/               # Issues (ISS-XXX.md)
+│   │   └── done/             # Закрытые
+│   ├── plans/                # Планы реализации
+│   ├── reviews/              # Ревью планов и кода
+│   └── meetings/             # Сводки встреч
+├── src/project_name/         # Код проекта
+├── tests/
+├── data/                     # Данные для разработки (не в git)
+├── project_state.md          # Архитектура, спринт, backlog, done, грабли
+└── pyproject.toml
 ```
 
-### Что куда:
+### Симлинки
+
+Claude, Codex и Cursor берут правила и скиллы из `.agents-config/` через симлинки. Меняешь `.agents-config/` — обновляется везде.
+
+### Что куда
 
 | Что | Куда |
 |-----|------|
-| Описание проекта, план, статус | `project_state.md` |
-| Правила для Claude | `.claude/CLAUDE.md` |
-| Правила для Cursor | `.cursor/rules/dev_rules.mdc` |
-| Аудиты проекта | `docs/audit_YYYY-MM-DD.md` |
-| Архитектурные решения | `docs/` |
-| Тестовые данные (PDF, JSON) | `data/` |
+| Правила, скиллы | `.agents-config/` |
+| PRD | `docs/prd.md` |
+| User stories | `docs/stories/US-XXX.md` |
+| Issues (баги, tech debt) | `docs/issues/ISS-XXX.md` |
+| Планы реализации | `docs/plans/` |
+| Ревью | `docs/reviews/` |
+| Сводки встреч | `docs/meetings/` |
+| Состояние проекта | `project_state.md` |
 | Код | `src/project_name/` |
 | Тесты | `tests/` |
 
@@ -38,8 +57,8 @@ project/
 
 - [ ] Переименуй `src/project_name/` под свой проект
 - [ ] Обнови `pyproject.toml` (name, description)
-- [ ] Заполни `project_state.md` (описание, план)
-- [ ] Заполни ЧАСТЬ 3 в `.claude/CLAUDE.md` (контекст проекта)
+- [ ] Заполни `docs/prd.md` (или вызови `/prd`)
+- [ ] Заполни `project_state.md` (архитектура, backlog)
 - [ ] Удали этот README или замени на описание своего проекта
 
 ## Команды
