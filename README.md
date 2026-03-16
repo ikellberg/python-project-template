@@ -15,9 +15,6 @@ project/
 ├── .codex/                   # Codex — симлинки на .agents-config
 │   ├── AGENTS.md -> ../.agents-config/RULES.md
 │   └── skills -> ../.agents-config/skills
-├── .cursor/                  # Cursor — симлинки + правила
-│   ├── skills -> ../.agents-config/skills
-│   └── rules/dev_rules.mdc   # Правила (дублирует RULES для Cursor)
 ├── docs/
 │   ├── prd.md                # Product Requirements Document (заполняется скиллом /prd)
 │   ├── stories/              # User Stories (US-XXX.md)
@@ -36,7 +33,7 @@ project/
 
 ### Симлинки
 
-Claude, Codex и Cursor берут правила и скиллы из `.agents-config/` через симлинки. Меняешь `.agents-config/` — обновляется везде.
+Claude и Codex берут правила и скиллы из `.agents-config/` через симлинки. Меняешь `.agents-config/` — обновляется везде.
 
 ### Что куда
 
