@@ -1,1 +1,1 @@
-../.agents-config/RULES.md
+../.agents/RULES.md

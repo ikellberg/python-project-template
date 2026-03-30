@@ -6,53 +6,57 @@
 
 ```
 project/
-├── .agents-config/           # Источник правды для правил и скиллов
+├── .agents/                  # Источник правды для правил и скиллов
 │   ├── RULES.md              # Базовые правила для LLM
 │   └── skills/               # Скиллы для LLM
-├── .claude/                   # Claude Code — симлинки на .agents-config
-│   ├── CLAUDE.md -> ../.agents-config/RULES.md
-│   └── skills -> ../.agents-config/skills
-├── .codex/                   # Codex — симлинки на .agents-config
-│   ├── AGENTS.md -> ../.agents-config/RULES.md
-│   └── skills -> ../.agents-config/skills
+├── .claude/                  # Claude Code — симлинки на .agents
+│   ├── CLAUDE.md -> ../.agents/RULES.md
+│   └── skills -> ../.agents/skills
+├── .codex/                   # Codex — симлинки на .agents
+│   ├── AGENTS.md -> ../.agents/RULES.md
+│   └── skills -> ../.agents/skills
 ├── docs/
-│   ├── prd.md                # Product Requirements Document (заполняется скиллом /prd)
+│   ├── prd.md                # Product Requirements Document (скилл /prd)
+│   ├── phases/               # Фазы проекта (01-slug.md, ...)
+│   ├── notes/                # Заметки, design-документы, исследования
 │   ├── stories/              # User Stories (US-XXX.md)
-│   │   └── done/             # Завершённые
+│   │   └── done/
 │   ├── issues/               # Issues (ISS-XXX.md)
-│   │   └── done/             # Закрытые
+│   │   └── done/
 │   ├── plans/                # Планы реализации
 │   ├── reviews/              # Ревью планов и кода
 │   └── meetings/             # Сводки встреч
 ├── src/project_name/         # Код проекта
 ├── tests/
 ├── data/                     # Данные для разработки (не в git)
-├── project_state.md          # Архитектура, спринт, backlog, done, грабли
+├── PROJECT_STATE.md          # Архитектура, спринт, backlog, done, грабли
 └── pyproject.toml
 ```
 
 ### Симлинки
 
-Claude и Codex берут правила и скиллы из `.agents-config/` через симлинки. Меняешь `.agents-config/` — обновляется везде.
+Claude и Codex берут правила и скиллы из `.agents/` через симлинки. Меняешь `.agents/` — обновляется везде.
 
 ### Что куда
 
 | Что | Куда |
 |-----|------|
-| Правила, скиллы | `.agents-config/` |
+| Правила, скиллы | `.agents/` |
 | PRD | `docs/prd.md` |
-| User stories | `docs/stories/US-XXX.md` |
+| Фазы проекта | `docs/phases/` |
+| Design-документы, исследования | `docs/notes/` |
+| User Stories | `docs/stories/US-XXX.md` |
 | Issues (баги, tech debt) | `docs/issues/ISS-XXX.md` |
 | Планы реализации | `docs/plans/` |
 | Ревью | `docs/reviews/` |
 | Сводки встреч | `docs/meetings/` |
-| Состояние проекта | `project_state.md` |
+| Состояние проекта | `PROJECT_STATE.md` |
 | Код | `src/project_name/` |
 | Тесты | `tests/` |
 
 ## После создания проекта (инициализация шаблона)
 
-На этом этапе подготовь репозиторий к работе.  
+На этом этапе подготовь репозиторий к работе.
 Контекста о продукте ещё нет — **ничего не проектируй и не заполняй**.
 
 ### Обязательные шаги
@@ -67,9 +71,9 @@ Claude и Codex берут правила и скиллы из `.agents-config/`
 
 ### README и документация
 
-- [ ] Удали этот `README.md`  
-Он относится только к шаблону и **не нужен в инициализированном проекте**
-- [ ] Не заполняй `docs/prd.md`, `project_state.md`, `description` в pyproject.toml  
+- [ ] Удали этот `README.md`
+  Он относится только к шаблону и **не нужен в инициализированном проекте**
+- [ ] Не заполняй `docs/prd.md`, `PROJECT_STATE.md`, `description` в pyproject.toml
   Всё это заполнится позже, когда будет контекст
 
 Цель этапа — **чистая, нейтральная стартовая кодовая база**, готовая к дальнейшей работе.
