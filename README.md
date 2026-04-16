@@ -12,7 +12,7 @@ project/
 │   └── skills/               # dev-скиллы (симлинки через sync-dev-skills.sh)
 ├── docs/
 │   ├── prd.md                # Product Requirements Document
-│   ├── phases/               # Фазы проекта (01-slug.md, ...)
+│   ├── epics/                # Эпики проекта (01-slug.md, ...)
 │   ├── notes/                # Заметки, design-документы, исследования
 │   ├── stories/              # User Stories (US-XXX.md)
 │   │   └── done/
@@ -47,7 +47,7 @@ Claude и Codex берут правила и скиллы из `~/.agents/`:
 | Что | Куда |
 |-----|------|
 | PRD | `docs/prd.md` |
-| Фазы проекта | `docs/phases/` |
+| Эпики проекта | `docs/epics/` |
 | Design-документы, исследования | `docs/notes/` |
 | User Stories | `docs/stories/US-XXX.md` |
 | Issues (баги, tech debt) | `docs/issues/ISS-XXX.md` |
