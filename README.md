@@ -7,9 +7,9 @@
 ```
 project/
 ├── .claude/                  # Claude Code
-│   └── skills/               # → ~/.agents/dev-skills
+│   └── skills/               # dev-скиллы (симлинки через sync-dev-skills.sh)
 ├── .codex/                   # Codex
-│   └── skills/               # → ~/.agents/dev-skills
+│   └── skills/               # dev-скиллы (симлинки через sync-dev-skills.sh)
 ├── docs/
 │   ├── prd.md                # Product Requirements Document
 │   ├── phases/               # Фазы проекта (01-slug.md, ...)
@@ -31,14 +31,16 @@ project/
 
 ### Симлинки
 
-Claude и Codex берут правила и скиллы из `~/.agents/` через симлинки:
+Claude и Codex берут правила и скиллы из `~/.agents/`:
 
 | Файл | Назначение |
 |---|---|
 | `CLAUDE.md` → `~/.agents/DEV-RULES.md` | Инженерные правила для Claude |
 | `AGENTS.md` → `~/.agents/DEV-RULES.md` | Инженерные правила для Codex |
-| `.claude/skills/` → `~/.agents/dev-skills/` | Dev-скиллы для Claude |
-| `.codex/skills/` → `~/.agents/dev-skills/` | Dev-скиллы для Codex |
+| `.claude/skills/*` | Индивидуальные симлинки на `~/.agents/dev-skills/*` |
+| `.codex/skills/*` | Индивидуальные симлинки на `~/.agents/dev-skills/*` |
+
+Скиллы синхронизируются скриптом: `~/.agents/sync-dev-skills.sh`
 
 ### Что куда
 
@@ -64,6 +66,7 @@ Claude и Codex берут правила и скиллы из `~/.agents/` че
 - [ ] Добавь конфиг стека (pyproject.toml / package.json / go.mod / ...)
 - [ ] Добавь stack-specific записи в `.gitignore`
 - [ ] Настрой структуру `src/` и `tests/` под стек
+- [ ] Запусти `~/.agents/sync-dev-skills.sh` для синхронизации dev-скиллов
 - [ ] Проверь, что симлинки на `~/.agents/` работают
 
 ### Не делать на этом этапе
