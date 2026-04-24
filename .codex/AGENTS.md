@@ -1,1 +1,1 @@
-../.agents/RULES.md
+/Users/iandreytsev/.agents/DEV-RULES.md
